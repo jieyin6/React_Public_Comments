@@ -36,11 +36,17 @@ class App extends Component {
   }
 }
 function mapStateToProps(state) {
+  // return {
+  //    userInfo:state.userinfo 后面这个是reducers/index里的userinfo
+ // }
   return {}
 }
 function mapDispatchToProps(dispatch) {
+  //dispatch 触发数据变化
   return {
-    userInfoActions:bindActionCreators(userInfoFromActions)
+    //userInfoActions 是props名字 作为属性传给组件 通过 this.props.userInfoActions取
+    // this.props.userInfoActions.update(data) 使用来更新state  /redux/actions里的函数update
+    userInfoActions:bindActionCreators(userInfoFromActions,dispatch)
   }
 }
 export default connect(
